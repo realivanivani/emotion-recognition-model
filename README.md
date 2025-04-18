@@ -4,6 +4,8 @@ This repository provides tools for processing and working with the AffectNet dat
 
 As someone who previously worked on fingerprint recognition models ([fingerprint-recognition](https://github.com/realivanivani/fingerprint-recognition)), I wanted to extend my expertise in biometric recognition to facial expression analysis. This project implements efficient data loading, preprocessing, and augmentation pipelines specifically designed for [AffectNet](https://arxiv.org/pdf/1708.03985).
 
+The AffectNet dataset is one of the largest datasets for facial expression, valence, and arousal estimation. Here's how to approach implementing code to process this dataset:
+
 > **Citation**:  
 > If you use this code or reference the AffectNet dataset in your research, please cite the original paper:
 > ```
@@ -15,6 +17,35 @@ As someone who previously worked on fingerprint recognition models ([fingerprint
 >   publisher={IEEE}
 > }
 > ```
+
+## Understanding the Dataset
+
+From the paper, AffectNet contains:
+- Over 1 million facial images
+- Manually annotated for:
+  - 8 basic expressions (including neutral)
+  - Valence and arousal (continuous dimensions)
+- A subset (about 450,000) has both categorical and dimensional labels
+
+## Code Structure Approach
+
+Here's how I would structure the code:
+
+### 1. Directory Structure
+
+```
+affectnet_processor/
+│── data/
+│   ├── images/          # Raw image files
+│   └── annotations/     # Annotation files
+├── preprocessing/
+│   ├── __init__.py
+│   ├── image_processing.py
+│   └── metadata_extraction.py
+├── dataloader.py       # PyTorch/TF data loader
+├── config.py           # Configuration parameters
+└── utils.py            # Helper functions
+```
 
 ## Features
 
